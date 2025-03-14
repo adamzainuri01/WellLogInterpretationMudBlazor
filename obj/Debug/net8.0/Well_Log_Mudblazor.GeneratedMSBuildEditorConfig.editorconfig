@@ -1,0 +1,84 @@
+is_global = true
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudIllegalParameters = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Well_Log_Mudblazor
+build_property.RootNamespace = Well_Log_Mudblazor
+build_property.ProjectDir = C:\Users\adamz\OneDrive\Documents\2. OSES\Kerja Kerja\9. Project\Well Log Project\Well_Log_Mudblazor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\adamz\OneDrive\Documents\2. OSES\Kerja Kerja\9. Project\Well Log Project\Well_Log_Mudblazor
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/Combo_Plot.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21ib19QbG90LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/Cut_Off.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDdXRfT2ZmLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/Final_Interpretation.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGaW5hbF9JbnRlcnByZXRhdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/PHI_Plot.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQSElfUGxvdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/Pickett_Plot.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQaWNrZXR0X1Bsb3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/SW_Plot.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTV19QbG90LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/Upload_Las.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVcGxvYWRfTGFzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Pages/VCL_Plot.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWQ0xfUGxvdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adamz/OneDrive/Documents/2. OSES/Kerja Kerja/9. Project/Well Log Project/Well_Log_Mudblazor/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 

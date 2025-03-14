@@ -1,0 +1,180 @@
+﻿@page "/upload_las"
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+@inject Well_Log_Mudblazor.Models.LogClass.LogValues logValues;
+@inject Well_Log_Mudblazor.Models.LogClass.ResParams resParams;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotOptions plotOptions;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+
+@using System;
+@using System.Net.Http;
+@using System.Text;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json;
+@using Well_Log_Mudblazor.Models.LogClass;
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@inject ISnackbar Snackbar
+@inject NavigationManager Navigation
+
+<section>
+    <!-- Breadcrumb -->
+    <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+
+    <!-- Title Section -->
+    <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+        <MudText Typo="Typo.h4">File Upload</MudText>
+    </MudAlert>
+
+    <!-- File Upload Component -->
+    <MudCard>
+        <MudCardContent>
+            <MudStack Style="width: 100%">
+                <!-- File Upload Section -->
+                <MudFileUpload T="IReadOnlyList<IBrowserFile>"
+                               Accept=".las"
+                               @ref="@_fileUpload"
+                               OnFilesChanged="OnInputFileChanged"
+                               AppendMultipleFiles
+                               Hidden="@false"
+                               InputClass="absolute mud-width-full mud-height-full overflow-hidden z-10"
+                               InputStyle="opacity:0"
+                               tabindex="-1"
+                               @ondrop="@ClearDragClass"
+                               @ondragenter="@SetDragClass"
+                               @ondragleave="@ClearDragClass"
+                               @ondragend="@ClearDragClass">
+                    <ActivatorContent>
+                        <MudPaper Height="100px"
+                                  Outlined="true"
+                                  Class="@_dragClass">
+                            <MudText Typo="Typo.h6">
+                                Drag and drop files here or click
+                            </MudText>
+                            @foreach (var file in _fileNames)
+                            {
+                                <MudChip T="string"
+                                         Color="Color.Dark"
+                                         Text="@file"
+                                         tabindex="-1" />
+                            }
+                        </MudPaper>
+                    </ActivatorContent>
+                </MudFileUpload>
+
+                <!-- Action Buttons -->
+                <MudToolBar Gutters="false" Class="relative d-flex justify-end gap-4 mt-4">
+                    <MudButton Color="Color.Primary" OnClick="@OpenFilePickerAsync" Variant="Variant.Filled">
+                        Open file picker
+                    </MudButton>
+                    <MudButton Color="Color.Primary" Disabled="@(!_fileNames.Any())" OnClick="@Upload" Variant="Variant.Filled">
+                        Upload
+                    </MudButton>
+                    <MudButton Color="Color.Error" Disabled="@(!_fileNames.Any())" OnClick="@ClearAsync" Variant="Variant.Filled">
+                        Clear
+                    </MudButton>
+                </MudToolBar>
+            </MudStack>
+        </MudCardContent>
+    </MudCard>
+</section>
+
+@code {
+#nullable enable
+    // Breadcrumb Items
+    private List<BreadcrumbItem> _items = new()
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+
+    // File Upload Logic
+    private const string DefaultDragClass = "relative rounded-lg border-2 border-dashed pa-4 mt-4 mud-width-full mud-height-full";
+    private string _dragClass = DefaultDragClass;
+    private readonly List<string> _fileNames = new();
+    private MudFileUpload<IReadOnlyList<IBrowserFile>>? _fileUpload;
+
+    private IBrowserFile? SelectedFile;
+    private long maxFileSize = 1024 * 1024 * 100; // 100 MB
+    private string? FileName = "No file selected.";
+
+    // Clear files
+    private async Task ClearAsync()
+    {
+        await (_fileUpload?.ClearAsync() ?? Task.CompletedTask);
+        _fileNames.Clear();
+        ClearDragClass();
+    }
+
+    // Open file picker
+    private Task OpenFilePickerAsync()
+        => _fileUpload?.OpenFilePickerAsync() ?? Task.CompletedTask;
+
+    // Handle file changes
+    private void OnInputFileChanged(InputFileChangeEventArgs e)
+    {
+        ClearDragClass();
+        var files = e.GetMultipleFiles();
+        foreach (var file in files)
+        {
+            _fileNames.Add(file.Name);
+        }
+
+        SelectedFile = files.FirstOrDefault(); // Use the first file for processing
+        FileName = SelectedFile?.Name ?? "No file selected.";
+    }
+
+    // Upload logic
+    private async Task Upload()
+    {
+        if (SelectedFile == null)
+        {
+            plotImage.ResultMessage = "No file selected.";
+            Snackbar.Add("Please select a file first.", Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            var content = new MultipartFormDataContent();
+            var fileStream = SelectedFile.OpenReadStream(maxFileSize);
+            var streamContent = new StreamContent(fileStream);
+            content.Add(streamContent, "file", SelectedFile.Name);
+
+            var response = await Http.PostAsync("http://localhost:8000/upload-file/", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                plotImage.ResultMessage = "File uploaded successfully";
+                Snackbar.Add("File uploaded successfully!", Severity.Success);
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                plotImage.ResultMessage = $"Failed to process file. Status code: {response.StatusCode}\nError details: {errorContent}";
+                Snackbar.Add($"Upload failed: {errorContent}", Severity.Error);
+            }
+            
+            await Task.WhenAll(logTask.ProcessComboPlot(), logTask.ProcessVCLPlot());
+            await logTask.ProcessPHIPlot();
+            await Task.WhenAll(logTask.ProcessPickettPlot(), logTask.ProcessSWPlot());
+            await logTask.ProcessNetPayPlot("cutoff");
+            await logTask.ProcessNetPayPlot("interpretation");
+        }
+        catch (Exception ex)
+        {
+            plotImage.ResultMessage = $"An error occurred: {ex.Message}";
+            Snackbar.Add($"Error: {ex.Message}", Severity.Error);
+        }
+    }
+
+    // Drag/drop styling
+    private void SetDragClass()
+        => _dragClass = $"{DefaultDragClass} mud-border-primary";
+
+    private void ClearDragClass()
+        => _dragClass = DefaultDragClass;
+}

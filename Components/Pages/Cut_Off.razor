@@ -1,0 +1,64 @@
+﻿@page "/cut_off"
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+@inject Well_Log_Mudblazor.Models.LogClass.ResParams resParams;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotData plotData;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+
+@using System;
+@using System.Net.Http;
+@using System.Text;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json;
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@if (plotData.Cutoff_Plot == true)
+{
+    <section>
+        <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+        <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+            <MudText Typo="Typo.h4">Cutoff Plot</MudText>
+        </MudAlert>
+            <div style="display: grid; gap: 20px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <MudNumericField @bind-Value="resParams.VCL_Cutoff" Immediate="true" Label="Clay Volume Cutoff" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="resParams.PHI_Cutoff" Immediate="true" Label="Porosity Cutoff" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="resParams.SW_Cutoff" Immediate="true" Label="Water Saturation Cutoff" Variant="Variant.Outlined"/>
+                    <MudButton @onclick='() => logTask.FromStartToFinish("sw")' Variant="Variant.Filled" Color="Color.Primary">
+                        Update Plot
+                    </MudButton>
+                </div>
+            </div>
+    </section>
+    <section style="text-align: center;">
+        <img src="data:image/png;base64,@plotImage.Cutoff_Plot" 
+                alt="Cutoff Plot" 
+                style="margin: 10px auto; display: inline-block;" />
+    </section>
+    <section style="text-align: center;">
+        <div id="cutoffPlotly"></div>
+    </section>
+}
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (plotData.Cutoff_Plot)
+        {
+            if (firstRender)
+            {
+                // Automatically call the task to send data to JS and render the plot
+                await logTask.SendGlobalPlotData("cutoff");
+            }
+        }
+    }
+}

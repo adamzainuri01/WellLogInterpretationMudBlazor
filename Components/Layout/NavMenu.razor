@@ -1,0 +1,53 @@
+﻿@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotData plotData;
+
+<MudNavMenu>
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+    <MudNavGroup Title="Well Log Interpretation" Icon="@Icons.Material.Filled.SpaceDashboard">
+        <MudNavLink Href="upload_las" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Upload Las File</MudNavLink>
+        @if (plotData.Combo_Plot == true)
+        {
+            <MudNavLink Href="combo_plot" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ShowChart">Combo Plot</MudNavLink>
+        }
+        @if (plotData.VCL_Plot == true)
+        {
+            <MudNavLink Href="vcl_plot" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.AccountTree">Clay Volume Calculation</MudNavLink>
+        }
+        @if (plotData.PHI_Plot == true)
+        {
+            <MudNavLink Href="phi_plot" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ScatterPlot">Porosity Calculation</MudNavLink>
+        }
+        @if (plotData.Pickett_Plot == true)
+        {
+            <MudNavLink Href="pickett_plot" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.TableChart">Pickett Plot</MudNavLink>
+        }
+        @if (plotData.SW_Plot == true)
+        {
+            <MudNavLink Href="sw_plot" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.WaterDrop">Water Saturation Calculation</MudNavLink>
+        }
+        @if (plotData.Cutoff_Plot == true)
+        {
+            <MudNavLink Href="cut_off" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.ContentCut">Cut Off Plot</MudNavLink>
+        }
+        @if (!string.IsNullOrEmpty(plotImage.Interpretation_Plot))
+        {
+            <MudNavLink Href="final_interpretation" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.PropaneTank">Final Interpretation</MudNavLink>
+        }
+    </MudNavGroup>
+    
+</MudNavMenu>
+
+@code {
+    protected override void OnInitialized()
+    {
+        plotImage.PropertyChanged += (sender, args) => StateHasChanged();
+        plotData.PropertyChanged += (sender, args) => StateHasChanged();  // Ensure UI updates when properties change
+    }
+
+    // Unsubscribe from PropertyChanged when the component is disposed
+    public void Dispose()
+    {
+        plotImage.PropertyChanged -= (sender, args) => StateHasChanged();
+        plotData.PropertyChanged -= (sender, args) => StateHasChanged();
+    }
+}

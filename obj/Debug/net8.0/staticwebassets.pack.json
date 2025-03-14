@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\js\\plotly.js",
+      "PackagePath": "staticwebassets\\js\\plotly.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Well_Log_Mudblazor.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Well_Log_Mudblazor.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Well_Log_Mudblazor.props",
+      "PackagePath": "build\\Well_Log_Mudblazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Well_Log_Mudblazor.props",
+      "PackagePath": "buildMultiTargeting\\Well_Log_Mudblazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Well_Log_Mudblazor.props",
+      "PackagePath": "buildTransitive\\Well_Log_Mudblazor.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Well_Log_Mudblazor.props" />
+</Project>

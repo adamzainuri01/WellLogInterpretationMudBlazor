@@ -1,0 +1,90 @@
+﻿@page "/phi_plot"
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+@inject Well_Log_Mudblazor.Models.LogClass.LogValues logValues;
+@inject Well_Log_Mudblazor.Models.LogClass.ResParams resParams;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotData plotData;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotOptions plotOptions;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+
+@using System;
+@using System.Net.Http;
+@using System.Text;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json;
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@if (plotData.PHI_Plot)
+{
+    <section>
+        <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+        <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+            <MudText Typo="Typo.h4">Porosity Calculation</MudText>
+        </MudAlert>
+            <div style="display: grid; gap: 20px;">
+                <!-- First Hokage -->
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <MudNumericField @bind-Value="logValues.DT_Matrix" Immediate="true" Label="DT Matrix" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.DT_Fluid" Immediate="true" Label="DT Fluid" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.DT_Shale" Immediate="true" Label="DT Shale" Variant="Variant.Outlined"/>
+                </div>
+
+                <!-- Second Hokage -->
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <MudNumericField @bind-Value="logValues.RHOB_Clean1" Immediate="true" Label="RHOB Clean 1" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.RHOB_Clean2" Immediate="true" Label="RHOB Clean 2" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.RHOB_Clay" Immediate="true" Label="RHOB Clay" Variant="Variant.Outlined"/>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <MudButton @onclick='() => logTask.FromStartToFinish("vcl")' Variant="Variant.Filled" Color="Color.Primary">
+                        Update Plot
+                    </MudButton>
+                </div>
+            </div>
+    </section>
+    <section style="text-align: center;">
+        <div id="comparePHIPlotly"></div>
+    </section>
+    <section>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <MudSelect T="string" Label="Select PHI" Value=@plotOptions.PHI_Select ValueChanged="OnPHIChanged" Variant="Variant.Outlined">
+                @foreach (var option in plotOptions.PHIOptions)
+                {
+                    <MudSelectItem Value="@option.Value">@option.Text</MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+    </section>
+}
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+
+    private async Task OnPHIChanged(string value)
+    {
+        plotOptions.PHI_Select = value;
+
+        // Execute the log task
+        await logTask.FromStartToFinish("phi");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (plotData.PHI_Plot)
+        {
+            if (firstRender)
+            {
+                // Automatically call the task to send data to JS and render the plot
+                await logTask.SendGlobalPlotData("phi");
+            }
+        }
+    }
+}

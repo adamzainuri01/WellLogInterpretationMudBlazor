@@ -1,0 +1,98 @@
+﻿@page "/sw_plot"
+
+@inject Well_Log_Mudblazor.Models.LogClass.LogValues logValues;
+@inject Well_Log_Mudblazor.Models.LogClass.ResParams resParams;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotData plotData;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotOptions plotOptions;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+
+@using System;
+@using System.Net.Http;
+@using System.Text;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json;
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@if (plotData.SW_Plot)
+{
+    <section>
+        <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+        <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+            <MudText Typo="Typo.h4">Water Saturation Calculation</MudText>
+        </MudAlert>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+            <!-- Left Section -->
+                <div style="display: flex; flex-direction: column; flex: 1; gap: 20px; min-width: 300px;">
+                <!-- First Hokage -->
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <MudNumericField @bind-Value="resParams.Shale_Resistivity" Immediate="true" Label="Shale Resistivity" Variant="Variant.Outlined"/>
+                        <MudNumericField @bind-Value="resParams.Water_Resistivity" Immediate="true" Label="Water Resistivity" Variant="Variant.Outlined"/>
+                    </div>
+
+                    <!-- Second Hokage -->
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <MudNumericField @bind-Value="resParams.A_Value" Immediate="true" Label="a" Variant="Variant.Outlined"/>
+                        <MudNumericField @bind-Value="resParams.M_Value" Immediate="true" Label="m" Variant="Variant.Outlined"/>
+                        <MudNumericField @bind-Value="resParams.N_Value" Immediate="true" Label="n" Variant="Variant.Outlined"/>
+                    </div>
+                </div>
+            <!-- Right Section -->
+                <div style="display: flex; flex-direction: column; flex: 1; gap: 20px; min-width: 300px;">
+                    <!-- Third Hokage -->
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <MudNumericField @bind-Value="resParams.Mid_Perf_Depth" Immediate="true" Label="Middle Perforation Depth" Variant="Variant.Outlined"/>
+                        <MudNumericField @bind-Value="resParams.Mid_Perf_Temp" Immediate="true" Label="Middle Perforation Temperature" Variant="Variant.Outlined"/>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <MudNumericField @bind-Value="resParams.Surface_Temp" Immediate="true" Label="Surface Temperature" Variant="Variant.Outlined"/>
+                        <MudButton @onclick='() => logTask.FromStartToFinish("phi")' Variant="Variant.Filled" Color="Color.Primary">
+                            Update Plot
+                        </MudButton>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <section style="text-align: center;">
+        <div id="compareSWPlotly"></div>
+    </section>
+    <section>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <MudSelect T="string" Label="Select SW" Value=@plotOptions.SW_Select ValueChanged="OnSWChanged" Variant="Variant.Outlined">
+                @foreach (var option in plotOptions.SWOptions)
+                {
+                    <MudSelectItem Value="@option.Value">@option.Text</MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+    </section>
+}
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+
+    private async Task OnSWChanged(string value)
+    {
+        plotOptions.SW_Select = value;
+
+        // Execute the log task
+        await logTask.FromStartToFinish("sw");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (plotData.SW_Plot)
+        {
+            if (firstRender)
+            {
+                // Automatically call the task to send data to JS and render the plot
+                await logTask.SendGlobalPlotData("sw");
+            }
+        }
+    }
+}

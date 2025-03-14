@@ -1,0 +1,32 @@
+﻿@page "/final_interpretation"
+
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@if (!string.IsNullOrEmpty(plotImage.Interpretation_Plot))
+{
+    <section>
+        <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+        <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+            <MudText Typo="Typo.h4">Interpretation Plot</MudText>
+        </MudAlert>
+    </section>
+    <section style="text-align: center;">
+        <img src="data:image/png;base64,@plotImage.Interpretation_Plot" 
+                alt="Interpretation Plot" 
+                style="margin: 10px auto; display: inline-block;" />
+    </section>
+}
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+}

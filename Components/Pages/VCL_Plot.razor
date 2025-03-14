@@ -1,0 +1,117 @@
+﻿@page "/vcl_plot"
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@inject Well_Log_Mudblazor.Models.LogClass.LogValues logValues;
+@inject Well_Log_Mudblazor.Models.LogClass.ResParams resParams;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotData plotData;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotOptions plotOptions;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+
+@using System;
+@using System.Net.Http;
+@using System.Text;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json;
+
+@if (plotData.VCL_Plot)
+{
+    <section>
+        <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+        <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+            <MudText Typo="Typo.h4">Clay Volume Calculation</MudText>
+        </MudAlert>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+            <!-- Left Section -->
+            <div style="display: flex; flex-direction: column; flex: 1; gap: 20px; min-width: 300px;">
+                <!-- First Hokage -->
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <MudNumericField @bind-Value="logValues.GR_Clean" Immediate="true" Label="GR Clean" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.GR_Clay" Immediate="true" Label="GR Clay" Variant="Variant.Outlined"/>
+                </div>
+                <!-- Second Hokage -->
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <MudNumericField @bind-Value="logValues.SP_Clean" Immediate="true" Label="SP Clean" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.SP_Clay" Immediate="true" Label="SP Clay" Variant="Variant.Outlined"/>
+                </div>
+                <!-- Third Hokage -->
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <MudNumericField @bind-Value="logValues.RT_Clean" Immediate="true" Label="RT Clean" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.RT_Clay" Immediate="true" Label="RT Clay" Variant="Variant.Outlined"/>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div style="display: flex; flex-direction: column; flex: 1; gap: 20px; min-width: 300px;">
+                <!-- Fourth Hokage -->
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <MudNumericField @bind-Value="logValues.NPHI_Clean1" Immediate="true" Label="NPHI Clean 1" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.NPHI_Clean2" Immediate="true" Label="NPHI Clean 2" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.NPHI_Clay" Immediate="true" Label="NPHI Clay" Variant="Variant.Outlined"/>
+                </div>
+                <!-- Fifth Hokage -->
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <MudNumericField @bind-Value="logValues.RHOB_Clean1" Immediate="true" Label="RHOB Clean 1" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.RHOB_Clean2" Immediate="true" Label="RHOB Clean 2" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="logValues.RHOB_Clay" Immediate="true" Label="RHOB Clay" Variant="Variant.Outlined"/>
+                </div>
+                <!-- Dropdown and Button -->
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <MudSelect @bind-Value="plotOptions.GR_Correction" Label="GR Correction" Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("young")">Larionov Young</MudSelectItem>
+                        <MudSelectItem Value="@("older")">Larionov Old</MudSelectItem>
+                        <MudSelectItem Value="@("clavier")">Clavier</MudSelectItem>
+                        <MudSelectItem Value="@("steiber")">Steiber</MudSelectItem>
+                    </MudSelect>
+                    <MudButton @onclick='() => logTask.FromStartToFinish()' Variant="Variant.Filled" Color="Color.Primary">
+                        Update Plot
+                    </MudButton>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="text-align: center;">
+        <div id="vclPlotly"></div>
+    </section>
+    <section>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <MudSelect T="string" Label="Select VCL" Value=@plotOptions.VCL_Select ValueChanged="OnVCLChanged" Variant="Variant.Outlined">
+                @foreach (var option in plotOptions.VCLOptions)
+                {
+                    <MudSelectItem Value="@option.Value">@option.Text</MudSelectItem>
+                }
+            </MudSelect>
+        </div>
+    </section>
+}
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+
+    private async Task OnVCLChanged(string value)
+    {
+        plotOptions.VCL_Select = value;
+
+        // Execute the log task
+        await logTask.FromStartToFinish("vcl");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (plotData.VCL_Plot)
+        {
+            if (firstRender)
+            {
+                // Automatically call the task to send data to JS and render the plot
+                await logTask.SendGlobalPlotData("vcl");
+            }
+        }
+    }
+}

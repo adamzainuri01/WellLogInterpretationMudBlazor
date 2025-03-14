@@ -1,0 +1,724 @@
+{
+  "Version": 1,
+  "Hash": "aFyflSM5ZMFzf9Pd5WZTISWr0M9lBBzjJWPBPYJEKVM=",
+  "Source": "Well_Log_Mudblazor",
+  "BasePath": "_content/Well_Log_Mudblazor",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Well_Log_Mudblazor\\wwwroot",
+      "Source": "Well_Log_Mudblazor",
+      "ContentRoot": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\",
+      "BasePath": "_content/Well_Log_Mudblazor",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mhumzvqd1g",
+      "Integrity": "2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lzoc4abpk8",
+      "Integrity": "geXX14pnDwFT+yUxYoAOx7xU4GLnDCWwzb6rVTWgXKo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\background.png",
+      "SourceId": "ScottPlot.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\",
+      "BasePath": "_content/ScottPlot.Blazor",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "x2rx4ajns0",
+      "Integrity": "WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\background.png"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\exampleJsInterop.js",
+      "SourceId": "ScottPlot.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\",
+      "BasePath": "_content/ScottPlot.Blazor",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6pqz8bsss0",
+      "Integrity": "FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\exampleJsInterop.js"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\DpiWatcher.js",
+      "SourceId": "SkiaSharp.Views.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\",
+      "BasePath": "_content/SkiaSharp.Views.Blazor",
+      "RelativePath": "DpiWatcher.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "psmbavd3s5",
+      "Integrity": "1wH/HmqQvqSPXzjs7IK+XBuhHPmwkvoUFJuEDaYR9+M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\DpiWatcher.js"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\SizeWatcher.js",
+      "SourceId": "SkiaSharp.Views.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\",
+      "BasePath": "_content/SkiaSharp.Views.Blazor",
+      "RelativePath": "SizeWatcher.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rmsll54i77",
+      "Integrity": "M63O44pHiiUGRnl/O0JLlqNsXqoSmxwjE9QjG/NvYxw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\SizeWatcher.js"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\SKHtmlCanvas.js",
+      "SourceId": "SkiaSharp.Views.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\",
+      "BasePath": "_content/SkiaSharp.Views.Blazor",
+      "RelativePath": "SKHtmlCanvas.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sgbb5qz9db",
+      "Integrity": "zEsFCPv5ukFuLuZDDrkLgpOwse/uqLODKJOaFdAs9pE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\SKHtmlCanvas.js"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\favicon.ico",
+      "SourceId": "Well_Log_Mudblazor",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\",
+      "BasePath": "_content/Well_Log_Mudblazor",
+      "RelativePath": "favicon#[.{fingerprint}]?.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2jeq8efc6q",
+      "Integrity": "8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\js\\plotly.js",
+      "SourceId": "Well_Log_Mudblazor",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\",
+      "BasePath": "_content/Well_Log_Mudblazor",
+      "RelativePath": "js/plotly#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "uya4j12x3r",
+      "Integrity": "hgdYIahTnMM/g20DqCJtYtBcux+AJ8IemVsfPBFaiU0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\plotly.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "580975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 17:00:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2gItJ0j/o5RSWg7VYqCOBpSPI1dxTOG+mnEzWt7EvYw="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\mudblazor\\7.16.0\\staticwebassets\\MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49824"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"geXX14pnDwFT+yUxYoAOx7xU4GLnDCWwzb6rVTWgXKo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 17 Jan 2025 17:00:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-geXX14pnDwFT+yUxYoAOx7xU4GLnDCWwzb6rVTWgXKo="
+        }
+      ]
+    },
+    {
+      "Route": "_content/ScottPlot.Blazor/background.png",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\background.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 24 Nov 2024 22:27:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY="
+        }
+      ]
+    },
+    {
+      "Route": "_content/ScottPlot.Blazor/background.x2rx4ajns0.png",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\background.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 24 Nov 2024 22:27:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x2rx4ajns0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/ScottPlot.Blazor/background.png"
+        }
+      ]
+    },
+    {
+      "Route": "_content/ScottPlot.Blazor/exampleJsInterop.6pqz8bsss0.js",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\exampleJsInterop.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 24 Nov 2024 22:27:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6pqz8bsss0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/ScottPlot.Blazor/exampleJsInterop.js"
+        }
+      ]
+    },
+    {
+      "Route": "_content/ScottPlot.Blazor/exampleJsInterop.js",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\scottplot.blazor\\5.0.47\\staticwebassets\\exampleJsInterop.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 24 Nov 2024 22:27:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SkiaSharp.Views.Blazor/DpiWatcher.js",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\DpiWatcher.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1011"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1wH/HmqQvqSPXzjs7IK+XBuhHPmwkvoUFJuEDaYR9+M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 07 Nov 2024 13:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1wH/HmqQvqSPXzjs7IK+XBuhHPmwkvoUFJuEDaYR9+M="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SkiaSharp.Views.Blazor/SizeWatcher.js",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\SizeWatcher.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1534"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"M63O44pHiiUGRnl/O0JLlqNsXqoSmxwjE9QjG/NvYxw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 07 Nov 2024 13:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-M63O44pHiiUGRnl/O0JLlqNsXqoSmxwjE9QjG/NvYxw="
+        }
+      ]
+    },
+    {
+      "Route": "_content/SkiaSharp.Views.Blazor/SKHtmlCanvas.js",
+      "AssetFile": "C:\\Users\\adamz\\.nuget\\packages\\skiasharp.views.blazor\\2.88.9\\staticwebassets\\SKHtmlCanvas.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6735"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zEsFCPv5ukFuLuZDDrkLgpOwse/uqLODKJOaFdAs9pE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 07 Nov 2024 13:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zEsFCPv5ukFuLuZDDrkLgpOwse/uqLODKJOaFdAs9pE="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.2jeq8efc6q.ico",
+      "AssetFile": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15086"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 04 Dec 2024 03:14:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jeq8efc6q"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15086"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 04 Dec 2024 03:14:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA="
+        }
+      ]
+    },
+    {
+      "Route": "js/plotly.js",
+      "AssetFile": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\js\\plotly.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hgdYIahTnMM/g20DqCJtYtBcux+AJ8IemVsfPBFaiU0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Dec 2024 08:45:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hgdYIahTnMM/g20DqCJtYtBcux+AJ8IemVsfPBFaiU0="
+        }
+      ]
+    },
+    {
+      "Route": "js/plotly.uya4j12x3r.js",
+      "AssetFile": "C:\\Users\\adamz\\OneDrive\\Documents\\2. OSES\\Kerja Kerja\\9. Project\\Well Log Project\\Well_Log_Mudblazor\\wwwroot\\js\\plotly.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24559"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hgdYIahTnMM/g20DqCJtYtBcux+AJ8IemVsfPBFaiU0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Dec 2024 08:45:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uya4j12x3r"
+        },
+        {
+          "Name": "label",
+          "Value": "js/plotly.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hgdYIahTnMM/g20DqCJtYtBcux+AJ8IemVsfPBFaiU0="
+        }
+      ]
+    }
+  ]
+}

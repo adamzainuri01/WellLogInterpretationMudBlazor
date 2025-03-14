@@ -1,0 +1,82 @@
+﻿@page "/pickett_plot"
+
+@inject Well_Log_Mudblazor.Models.LogClass.LogValues logValues;
+@inject Well_Log_Mudblazor.Models.LogClass.ResParams resParams;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotData plotData;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotOptions plotOptions;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+
+@using System;
+@using System.Net.Http;
+@using System.Text;
+@using System.Threading.Tasks;
+@using Newtonsoft.Json;
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@if (plotData.Pickett_Plot == true)
+{
+    <section>
+        <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+        <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+            <MudText Typo="Typo.h4">Pickett Plot</MudText>
+        </MudAlert>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+            <!-- Left Section -->
+            <div style="display: flex; flex-direction: column; flex: 1; gap: 20px; min-width: 300px;">
+                <!-- Second Hokage -->
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <MudNumericField @bind-Value="resParams.A_Value" Immediate="true" Label="a" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="resParams.M_Value" Immediate="true" Label="m" Variant="Variant.Outlined"/>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <MudNumericField @bind-Value="resParams.N_Value" Immediate="true" Label="n" Variant="Variant.Outlined"/>
+                </div>
+            </div>
+            
+            <!-- Right Section -->
+            <div style="display: flex; flex-direction: column; flex: 1; gap: 20px; min-width: 300px;">
+                <!-- First Hokage -->
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <MudNumericField @bind-Value="resParams.VCL_Limit" Immediate="true" Label="Clay Volume Limit" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="resParams.Water_Resistivity" Immediate="true" Label="Water Resistivity" Variant="Variant.Outlined"/>
+                </div>
+
+                <!-- Dropdown row -->
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <MudSelect @bind-Value="plotOptions.Z_Axis" Label="Z Axis" Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("GR")">Gamma Ray</MudSelectItem>
+                        <MudSelectItem Value="@("VCL")">Clay Volume</MudSelectItem>
+                    </MudSelect>
+                    <MudButton @onclick='() => logTask.FromStartToFinish("phi")' Variant="Variant.Filled" Color="Color.Primary">
+                        Update Plot
+                    </MudButton>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="text-align: center;">
+        <div id="pickettPlotly"></div>
+    </section>
+}
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (plotData.Pickett_Plot)
+        {
+            if (firstRender)
+            {
+                // Automatically call the task to send data to JS and render the plot
+                await logTask.SendGlobalPlotData("pickett");
+            }
+        }
+    }
+}

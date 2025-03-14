@@ -1,0 +1,51 @@
+﻿@page "/combo_plot"
+@rendermode InteractiveServer
+@inject HttpClient Http
+
+@inject Well_Log_Mudblazor.Models.LogClass.PlotImage plotImage;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotOptions plotOptions;
+@inject Well_Log_Mudblazor.Models.LogTask.LogTask logTask;
+@inject Well_Log_Mudblazor.Models.LogClass.PlotData plotData;
+
+@using System;
+@using System.Net.Http;
+@using System.Text;
+@using System.Threading.Tasks;
+@using System.Text.Json;
+@inject IJSRuntime JSRuntime;
+
+<PageTitle>Well Log Interpretation</PageTitle>
+
+@if (plotData.Combo_Plot)
+{
+    <section>
+        <MudBreadcrumbs Items="_items"></MudBreadcrumbs>
+        <MudAlert Severity="Severity.Normal" Variant="Variant.Filled" NoIcon="true" Class="mb-10">
+            <MudText Typo="Typo.h4">Combo Plot</MudText>
+        </MudAlert>
+    </section>
+    <section style="text-align: center;">
+        <div id="comboPlotly"></div>
+    </section>
+}
+
+
+@code {
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#", icon: Icons.Material.Filled.Home),
+        new BreadcrumbItem("Well Log Interpretation", href: null, disabled: true, icon: Icons.Material.Filled.SpaceDashboard),
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (plotData.Combo_Plot)
+        {
+            if (firstRender)
+            {
+                // Automatically call the task to send data to JS and render the plot
+                await logTask.SendGlobalPlotData("combo");
+            }
+        }
+    }
+}
