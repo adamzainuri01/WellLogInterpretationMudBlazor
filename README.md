@@ -11,3 +11,9 @@ Key Features:
 - Water Saturation Calculation: Determine fluid saturation using various models.
 - Cut-Off Plot: Apply cut-offs to refine reservoir intervals.
 - Net Pay Calculation: Deliver a final interpretation with net pay estimation.
+
+## Preview
+![alt text](https://github.com/adamzainuri01/WellLogInterpretationMudBlazor/blob/main/images/Home.png)
+![alt text](https://github.com/adamzainuri01/WellLogInterpretationMudBlazor/blob/main/images/Cutoff.png)
+![alt text](https://github.com/adamzainuri01/WellLogInterpretationMudBlazor/blob/main/images/VCL.png)
+![alt text](https://github.com/adamzainuri01/WellLogInterpretationMudBlazor/blob/main/images/NetPay.png)
